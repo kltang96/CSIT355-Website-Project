@@ -1,6 +1,6 @@
-drop DATABASE GROUP_PROJECT337;
-CREATE DATABASE GROUP_PROJECT337;
-USE GROUP_PROJECT337;
+DROP DATABASE DrinkDatabse;
+CREATE DATABASE DrinkDatabse;
+USE DrinkDatabse; 
 
 CREATE TABLE CUSTOMERS(
   customerID varchar(10) NOT NULL PRIMARY KEY,
@@ -44,6 +44,12 @@ CREATE TABLE PRODUCTS(
   picture VARCHAR(100) NOT NULL,
   price FLOAT(24) NOT NULL,
   type ENUM('water', 'juice', 'soda', 'alcoholic', 'other'), 
+  quantity INT not NULL
+);
+
+CREATE TABLE INVENTORY(
+  productid INT NOT NULL,
+    FOREIGN KEY (productid) REFERENCES RPODUCTS(productid),
   quantity INT not NULL
 );
 
