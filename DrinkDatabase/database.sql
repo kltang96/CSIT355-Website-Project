@@ -17,6 +17,7 @@ CREATE TABLE CUSTOMERS(
 
 CREATE TABLE ROLES(
   role VARCHAR(30) NOT NULL PRIMARY KEY,
+  ch_orderstatus ENUM('No', 'Yes'), 
   ch_employee ENUM('No', 'Yes'), 
   ch_product ENUM('No', 'Yes')
 );
@@ -50,7 +51,8 @@ CREATE TABLE PRODUCTS(
 CREATE TABLE INVENTORY(
   productid INT NOT NULL,
     FOREIGN KEY (productid) REFERENCES RPODUCTS(productid),
-  quantity INT not NULL
+  quantity INT not NULL,
+  totalsold INT not null,
 );
 
 CREATE TABLE ORDERS(
