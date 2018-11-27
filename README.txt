@@ -1,9 +1,2 @@
-test
-
-test
-
-testing 123
-
-test 4
-
-just proving i know how to push something- zack
+1. finalize database
+2. determine which pages we need
