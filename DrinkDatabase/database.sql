@@ -1,4 +1,3 @@
-DROP DATABASE DrinkDatabse;
 CREATE DATABASE DrinkDatabse;
 USE DrinkDatabse; 
 
@@ -65,4 +64,12 @@ CREATE TABLE ORDERS(
   orderdate DATE,
   fulfilldate DATE,
   request VARCHAR(300) NOT NULL
+);
+
+CREATE DATABASE shoppingCarts;
+USE shoppingCarts; 
+
+CREATE TABLE CART_C000000000(
+  productid INT NOT NULL,
+  quantity INT not NULL,
 );
