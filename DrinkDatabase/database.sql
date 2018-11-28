@@ -18,6 +18,7 @@ CREATE TABLE CUSTOMERS(
 CREATE TABLE ROLES(
   role VARCHAR(30) NOT NULL PRIMARY KEY,
   ch_orderstatus ENUM('No', 'Yes'), 
+  ch_order ENUM('No', 'Yes'), 
   ch_employee ENUM('No', 'Yes'), 
   ch_product ENUM('No', 'Yes')
 );
