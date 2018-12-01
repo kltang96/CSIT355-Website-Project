@@ -67,6 +67,7 @@ CREATE TABLE ORDERS(
   request VARCHAR(300) NOT NULL
 );
 
+DROP DATABASE shoppingCarts;
 CREATE DATABASE shoppingCarts;
 USE shoppingCarts; 
 
