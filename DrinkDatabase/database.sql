@@ -1,6 +1,6 @@
 DROP DATABASE DrinkDatabase;
 CREATE DATABASE DrinkDatabase;
-USE DrinkDatabse; 
+USE DrinkDatabase; 
 
 CREATE TABLE CUSTOMERS(
   customerID varchar(10) NOT NULL PRIMARY KEY,
