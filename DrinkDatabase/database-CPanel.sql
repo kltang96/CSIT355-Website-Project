@@ -69,9 +69,7 @@ CREATE TABLE ORDERS(
   request VARCHAR(300) NOT NULL
 );
 
-DROP DATABASE [yournameID]_shoppingCarts;
-CREATE DATABASE shoppingCarts;
-USE shoppingCarts; 
+USE [yournameID]_shoppingCarts; 
 
 CREATE TABLE CART_C000000000(
   productid INT NOT NULL,
