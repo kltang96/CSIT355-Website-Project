@@ -1,5 +1,5 @@
-DROP DATABASE DrinkDatabse;
-CREATE DATABASE DrinkDatabse;
+DROP DATABASE DrinkDatabase;
+CREATE DATABASE DrinkDatabase;
 USE DrinkDatabse; 
 
 CREATE TABLE CUSTOMERS(
