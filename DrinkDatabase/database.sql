@@ -1,3 +1,4 @@
+DROP DATABASE DrinkDatabse;
 CREATE DATABASE DrinkDatabse;
 USE DrinkDatabse; 
 
