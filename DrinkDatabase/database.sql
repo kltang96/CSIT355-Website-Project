@@ -53,7 +53,7 @@ CREATE TABLE INVENTORY(
   productid INT NOT NULL,
     FOREIGN KEY (productid) REFERENCES RPODUCTS(productid),
   quantity INT not NULL,
-  totalsold INT not null,
+  totalsold INT not null
 );
 
 CREATE TABLE ORDERS(
@@ -73,5 +73,5 @@ USE shoppingCarts;
 
 CREATE TABLE CART_C000000000(
   productid INT NOT NULL,
-  quantity INT not NULL,
+  quantity INT not NULL
 );
