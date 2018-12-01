@@ -1,3 +1,5 @@
+--this is a comment
+
 DROP DATABASE DrinkDatabase;
 CREATE DATABASE DrinkDatabase;
 USE DrinkDatabase; 
