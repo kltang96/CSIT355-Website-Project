@@ -39,6 +39,7 @@
 
 	//define functions
 	function dispOrder(int $orderID) {
+		//order file
 		$filename = "orders/order_$orderID.txt"; //echo $filename;
 		if(file_exists($filename)) {
 			@$fp = fopen($filename, 'r');
@@ -46,12 +47,14 @@
 		else {
 			@$fp = null;
 		}
+		//table header
 		echo '<table border="1"><tr>
 				<th>#</th>
 				<th>Product ID</th>
 				<th>Item name</th>
 				<th>Quantity</th>
 				<th>Cost</th></tr>';
+		//items
 		$count = 1;
 		if (!$fp) {
 			echo "<tr><td colspan=\"100%\">No items in order</td></tr>";
@@ -68,6 +71,7 @@
 				$count++;
 			}
 		}
+		//end
 		echo '</table>';
 		if ($fp) fclose($fp);
 	} 
