@@ -1,2 +1,2 @@
-1, sample_name1, 9
-2, sample_name2, 10
+1,sample_name1,9,$5
+2,sample_name2,10,$7

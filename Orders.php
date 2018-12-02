@@ -17,7 +17,7 @@
     	echo "Connection failed: " . $e->getMessage();
     }
 
-	//operate on databse
+	//initiate orders colNames
 	$colNameArray = [['orderID', 'Order ID'], 
 					['cost', 'Cost'],
 					['status', 'Status'], 
@@ -25,18 +25,51 @@
 					['fulfilldate',  'Fulfill date'],
 					['request', 'Request']];
 	$colNameCommaSeparatedString = '';
+	//convert colNames to one comma separted string
 	foreach($colNameArray as $colName) {
-		$colNameCommaSeparatedString = $colNameCommaSeparatedString . $colName[0] . ', ';
+		$colNameCommaSeparatedString .= $colName[0] . ', ';
 	}
+	//remove last ", "
 	$colNameCommaSeparatedString = substr($colNameCommaSeparatedString, 0, strlen($colNameCommaSeparatedString)-2);
-	echo $colNameCommaSeparatedString;
+
+	//operate on databse
 	$customerOrders = $conn->query("SELECT orderID, cost, status, orderdate, fulfilldate, request
 		FROM `ORDERS` 
 		WHERE customerID='$customerID'");
 
 	//define functions
-	function dispOrder() {
-		return 'order -----';
+	function dispOrder(int $orderID) {
+		$filename = "orders/order_$orderID.txt"; //echo $filename;
+		if(file_exists($filename)) {
+			@$fp = fopen($filename, 'r');
+		}
+		else {
+			@$fp = null;
+		}
+		echo '<table border="1"><tr>
+				<th>#</th>
+				<th>Product ID</th>
+				<th>Item name</th>
+				<th>Quantity</th>
+				<th>Cost</th></tr>';
+		$count = 1;
+		if (!$fp) {
+			echo "<tr><td colspan=\"100%\">No items in order</td></tr>";
+		}
+		else {
+			while (!feof($fp)) {
+				$line = fgets($fp, 999);
+				$item = explode(',', $line);
+				echo "<tr><td>$count</td>";
+				foreach($item as $col) {
+					echo "<td>$col</td>";
+				}
+				echo "</tr>\n";
+				$count++;
+			}
+		}
+		echo '</table><br>';
+		if ($fp) fclose($fp);
 	} 
 ?>
 <!DOCTYPE html>
@@ -54,12 +87,16 @@
     <h1> Orders </h1>
     <div class="container ">
         <?php
+			//loop through orders
 			foreach ($customerOrders as $row) {
+				//loop through columns
+				//add $ infront of $cost
+				$row["cost"] = "$" . $row["cost"];
 				foreach ($colNameArray as $colName) {
 					echo $colName[1] . ': ' . $row[$colName[0]] . '<br>';
 				}
 				//dispOrder
-				echo dispOrder() . '<br><br>';
+				dispOrder($row["orderID"]) . '<br><br>';
 			}
 		?>
     </div>
