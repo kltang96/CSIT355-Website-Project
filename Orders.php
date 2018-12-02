@@ -68,7 +68,7 @@
 				$count++;
 			}
 		}
-		echo '</table><br>';
+		echo '</table>';
 		if ($fp) fclose($fp);
 	} 
 ?>
@@ -96,7 +96,8 @@
 					echo $colName[1] . ': ' . $row[$colName[0]] . '<br>';
 				}
 				//dispOrder
-				dispOrder($row["orderID"]) . '<br><br>';
+				dispOrder($row["orderID"]);
+				echo '<br>';
 			}
 		?>
     </div>
