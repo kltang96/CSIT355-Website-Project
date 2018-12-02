@@ -53,7 +53,7 @@ CREATE TABLE PRODUCTS(
 
 CREATE TABLE INVENTORY(
   productid INT NOT NULL,
-    FOREIGN KEY (productid) REFERENCES RPODUCTS(productid),
+    FOREIGN KEY (productid) REFERENCES PRODUCTS(productid),
   quantity INT not NULL,
   totalsold INT not null
 );
@@ -67,13 +67,4 @@ CREATE TABLE ORDERS(
   orderdate DATE,
   fulfilldate DATE,
   request VARCHAR(300) NOT NULL
-);
-
-DROP DATABASE shoppingCarts;
-CREATE DATABASE shoppingCarts;
-USE shoppingCarts; 
-
-CREATE TABLE CART_C000000000(
-  productid INT NOT NULL,
-  quantity INT not NULL
 );
