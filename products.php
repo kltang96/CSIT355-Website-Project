@@ -1,103 +1,35 @@
-<div class="container">
+<?php include( "Config.php");
+    if(mysqli_connect_errno()){
+        echo "Jest problem z podłączeniem się do bazy danych. Skontaktuj się z administratorem.";
+        die();
+    }
+    // loop through results of database query, displaying them in the table
+    $result = mysqli_query($db,"SELECT * FROM PRODUCTS");
+    ?>
+</head>
+<body>
 
+    <h1>Products</h1>
+    <?php
+    echo "<p><b>View All</b>";
 
-<?php
- include("Config.php");
-$productid = mysqli_real_escape_string($db,$_POST['productid']);
-$query = "SELECT productid FROM PRODUCTS WHERE productid =  '$productid'" ;
- $result = mysqli_query($db,$query);
-$rows = array();
-while ( $row = mysqli_fetch_array($result)){
+    echo "<table border='1' cellpadding='10'>";
+                echo "<tr> <th>ID</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Picture</th> <th>Type</th> <th>Quantity</th> <th>Edit</th> <th>delete</th></tr>";
+                while($row = mysqli_fetch_object($result)) {
 
-
-
-  array_push($rows, $row);
-}
-    
-    
-    
-    
-?>    
-<div class="col-md-9">
-
-<!--Image, Description, and Short Description-->
-
-<div class="row">
-
-    <div class="col-md-7">
-       <img  width="500" class="img-responsive" src="<?php echo display_image($row['picture']); ?>" alt="">
-
-    </div>
-
-    <div class="col-md-5">
-
-        <div class="thumbnail">
-         
-
-    <div class="caption-full">
-        <h4><?php foreach($row['name'] as $row) {
-    echo $row['name'];} ?>
- </h4>
-        <hr>
-        <h5 class=""><?php foreach( $row['price'] as $row){echo $row['price'];} ?></h5>
-
-    
-          
-       <?php echo $row['description']; ?>
-
-   
-    <form action="">
-        <div class="form-group">
-            <a href="resources/cart.php?add=<?php echo $row['productid']; ?>" class="btn btn-primary">Buy Now</a>
-        </div>
-    </form>
-
-    </div>
- 
-</div>
-
-</div>
-
-
-</div>
-
-
-        <hr>
-
-
-
-<div class="row">
-
-<div role="tabpanel">
-
-  <!-- Description -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-
-  </ul>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
-
-
-           
-        <p><?php echo $row['description']; ?></p> 
-
-    </div>
-    
-
- </div>
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
-
-</div>
-    <!-- End of Div Container -->
-
+                // echo out the contents of each row into a table
+                echo "<tr>";
+                            echo '<td>' . $row->productid . '</td>';
+                            echo '<td>' . $row->name . '</td>';
+                            echo '<td>' . $row->description . '</td>';
+                            echo '<td>' . $row->price . '</td>';
+                            echo '<td>' . $row->picture . '</td>';
+                            echo '<td>' . $row->type . '</td>';
+                            echo '<td>' . $row->quantity . '</td>';
+                            echo '<td><a href="edit.php?id=' . $row->id . '">Edit</a></td>';
+                            echo '<td><a href="delete.php?id=' . $row->id . '">Delete</a></td>';
+                echo "</tr>";
+                }
+                // close table>
+    echo "</table>";
+    ?>
