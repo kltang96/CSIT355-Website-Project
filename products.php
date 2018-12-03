@@ -1,4 +1,5 @@
-<?php include( "Config.php");
+ 
+ <?php include( "Config.php");
     if(mysqli_connect_errno()){
         echo "Jest problem z podłączeniem się do bazy danych. Skontaktuj się z administratorem.";
         die();
@@ -14,7 +15,7 @@
     echo "<p><b>View All</b>";
 
     echo "<table border='1' cellpadding='10'>";
-                echo "<tr> <th>ID</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Picture</th> <th>Type</th> <th>Quantity</th> <th>Edit</th> <th>delete</th></tr>";
+                echo "<tr> <th>ID</th> <th>Name</th> <th>Description</th> <th>Price</th> <th>Picture</th> <th>Type</th> <th>Quantity</th> <th>Edit</th> <th>Add to cart</th></tr>";
                 while($row = mysqli_fetch_object($result)) {
 
                 // echo out the contents of each row into a table
@@ -27,7 +28,7 @@
                             echo '<td>' . $row->type . '</td>';
                             echo '<td>' . $row->quantity . '</td>';
                             echo '<td><a href="edit.php?id=' . $row->id . '">Edit</a></td>';
-                            echo '<td><a href="delete.php?id=' . $row->id . '">Delete</a></td>';
+                            echo '<td><a href="cart.php?id='.$row->id.'">Buy Now</a></td>';
                 echo "</tr>";
                 }
                 // close table>
