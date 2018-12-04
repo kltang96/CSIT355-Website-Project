@@ -17,19 +17,39 @@
     	echo "Connection failed: " . $e->getMessage();
     }
 
+	//calculate total price of order, and convert each price to money format
+	$totalPrice = 0;
+	foreach ($_SESSION["order"] as $item) {
+		$totalPrice += $item[3];
+		$item[3] = "$" . number_format($item[3], 2);
+	}
+	$totalPriceMoney = "$" . number_format($totalPrice, 2);
 	//define functions
+	function insertOrderToDB() {
+		$date = date('Ymd');
+		$GLOBALS['conn']->query("INSERT INTO `orders`(`customerID`, `cost`, `status`, `orderdate`, `fulfilldate`, `request`) 
+			VALUES ('" . $GLOBALS['customerID'] . "', " . $GLOBALS['totalPrice'] . 
+			", 'pending', '$date', null, '')");
+
+	}
 	function writeOrder() {
+		$orderID = $GLOBALS['conn']->query("SELECT MAX(orderID) FROM `orders` WHERE customerID='" . $GLOBALS['customerID'] . "'");
+		foreach ($orderID as $row) { //this legit the only way to get a single cell value PDO sucks
+			foreach ($row as $col) {
+				$orderID = $col;
+			}
+		}
 		$filename = "orders/order_$orderID.txt";
 		@$fp = fopen($filename, 'w');
-
+		foreach ($_SESSION["order"] as $item) {
+			for($i = 0; $i < $item.length-1; $i++) {
+				fwrite($fp, $item[$i] . ',');
+			}
+			fwrite($fp, $item[$item.length] . '\n');
+		}
 
 	}
-	function insertOrderToDB() {
-		$conn->query("INSERT INTO `orders`(`customerID`, `cost`, `status`, `orderdate`, `fulfilldate`, `request`) 
-			VALUES (" + $GLOBALS['customerID'] + ",0,'pending],timestamp,null,'')");
-
-
-	}
+	
 	 
 ?>
 <!DOCTYPE html>
@@ -44,17 +64,24 @@
 
 </head>
 <body>
-    <h1> Orders </h1>
+    <h1> Checkout </h1>
     <div class="container ">
 		<form action="Orders.php" method="post">
-
-
-
-
-
+		<p>Payment info: 
+		<input type="text" placeholder="receives no payment information, as per project instructions" name="payment" size="100%" disabled>
+		</p>
+		<p>
+		<input type="submit" value="Submit Order">
+		</p>
 		</form>
         <?php
-			writeOrder();
+			if(!empty($_SESSION["order"])) {
+				insertOrderToDB();
+				writeOrder();
+			}
+			//clear cart and order;
+			$_SESSION["cart_array"] = [];
+			$_SESSION["order"] = [];
 		?>
     </div>
 

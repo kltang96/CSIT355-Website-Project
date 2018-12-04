@@ -1,5 +1,8 @@
-<?php include("Config.php"); ?>
-
+<?php 
+	session_start();
+	include("Config.php"); 
+	$_SESSION["order"] = [];
+?>
 
 <?php 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,7 +112,9 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		$pricetotal = $price * $each_item['quantity'];
 		$cartTotal = $pricetotal + $cartTotal;
 		setlocale(LC_MONETARY, "en_US");
-        $pricetotal = money_format("%10.2n", $pricetotal);
+        $pricetotalmoney = money_format("%10.2n", $pricetotal);
+		//add cart with extra information to $_SESSION["order"], to be written to file at Checkout
+		$_SESSION["order"] = [$item_id, $product_name, $each_item['quantity'], $pricetotal];
 		// Dynamic Checkout Btn Assembly
 		$x = $i + 1;
 		$pp_checkout_btn .= '<input type="hidden" name="item_name_' . $x . '" value="' . $product_name . '">
@@ -128,7 +133,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
 		<input name="item_to_adjust" type="hidden" value="' . $item_id . '" />
 		</form></td>';
 		//$cartOutput .= '<td>' . $each_item['quantity'] . '</td>';
-		$cartOutput .= '<td>' . $pricetotal . '</td>';
+		$cartOutput .= '<td>' . $pricetotalmoney . '</td>';
 		$cartOutput .= '<td><form action="cart.php" method="post"><input name="deleteBtn' . $item_id . '" type="submit" value="X" /><input name="index_to_remove" type="hidden" value="' . $i . '" /></form></td>';
 		$cartOutput .= '</tr>';
 		$i++; 
@@ -188,6 +193,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
     <br />
     <br />
     <a href="cart.php?cmd=emptycart">Click Here to Empty Your Shopping Cart</a>
+	<p style='text-align:right' ><a href="checkout.php?">Click Here to Checkout</a></p>
     </div>
    <br />
   

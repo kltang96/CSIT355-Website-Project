@@ -62,13 +62,18 @@
 		else {
 			while (!feof($fp)) {
 				$line = fgets($fp, 999);
-				$item = explode(',', $line);
-				echo "<tr><td>$count</td>";
-				foreach($item as $col) {
-					echo "<td>$col</td>";
+				if($line!=''){
+					$item = explode(',', $line);
+					echo "<tr><td>$count</td>";
+					foreach($item as $col) {
+						echo "<td>$col</td>";
+					}
+					echo "</tr>\n";
+					$count++;
 				}
-				echo "</tr>\n";
-				$count++;
+			}
+			if ($count = 1) {
+				echo "<tr><td colspan=\"100%\">No items in order</td></tr>";
 			}
 		}
 		//end
@@ -95,7 +100,6 @@
 			foreach ($customerOrders as $row) {
 				//loop through columns
 				//add $ infront of $cost
-				$row["cost"] = "$" . $row["cost"];
 				foreach ($colNameArray as $colName) {
 					echo $colName[1] . ': ' . $row[$colName[0]] . '<br>';
 				}
