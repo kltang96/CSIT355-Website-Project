@@ -3,6 +3,7 @@
 	$customerID = $_SESSION["customerID"] = "user1";
 
 	//connect to database
+	//note to zack: change the 4 fields below to connect to your database
 	$servername = "localhost";
 	$dbname = "drinkDatabase";
 	$username = "super"; 
