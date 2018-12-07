@@ -8,7 +8,7 @@
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT customerID FROM CUSTOMERS WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT customerID FROM CUSTOMERS WHERE customerID = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
@@ -20,7 +20,7 @@
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: welcome.php");
+         header("location: products1.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }

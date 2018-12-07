@@ -14,8 +14,7 @@ $Lname = "";
 $errors = array(); 
 
 // connect to the database
-//$db = mysqli_connect('localhost:3306', 'garbuttz_garbutt', 'rex132660!', 'garbuttz_project');
-$db = mysqli_connect('localhost:3306', 'super', '', 'drinkdatabase'); //test
+include("Config.php");
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
