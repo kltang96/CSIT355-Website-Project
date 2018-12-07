@@ -1,4 +1,7 @@
-<?php include('server.php') ?>
+<?php 
+	$_SESSION['errors'] = '';
+	include('server.php')
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +9,16 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="header">
-  	<h2>Register</h2>
-  </div>
-	
+	<div class='header'> 
+		<h2>Register</h2>
+	</div>
+	<!--display errors-->
+	<div class='errors'>
+		<?php
+			echo $_SESSION['errors'];
+			$_SESSION['errors'] = '';
+		?>
+	<div>
   <form method="post" action="register.php">
   	<div class="input-group">
   	  <label>Username</label>

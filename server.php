@@ -14,7 +14,8 @@ $Lname = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost:3306', 'garbuttz_garbutt', 'rex132660!', 'garbuttz_project');
+//$db = mysqli_connect('localhost:3306', 'garbuttz_garbutt', 'rex132660!', 'garbuttz_project');
+$db = mysqli_connect('localhost:3306', 'super', '', 'drinkdatabase'); //test
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -43,12 +44,12 @@ if (empty($Fname)) { array_push($errors, "first name is needed"); }
 if (empty($Lname)) { array_push($errors, "last name is required"); }
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM CUSTOMERS WHERE username='$username' OR email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM CUSTOMERS WHERE customerID='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
-    if ($user['username'] === $username) {
+    if ($user['customerID'] === $username) {
       array_push($errors, "Username already exists");
     }
 
@@ -58,8 +59,10 @@ if (empty($Lname)) { array_push($errors, "last name is required"); }
   }
 
   // Finally, register user if there are no errors in the form
+  
+  //display header and errors
+  
   if (count($errors) == 0) {
-  	
 
   	$query = "INSERT INTO CUSTOMERS (username, email, password, DoB, phone, address, Fname, Lname ) 
   			  VALUES('$username', '$email', '$password_1', '$DOB', '$Phonenumber', '$address', '$Fname', '$Lname' )";
@@ -67,5 +70,12 @@ if (empty($Lname)) { array_push($errors, "last name is required"); }
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: login.php');
+  }
+  else {
+  	  $_SESSION['errors'] = "<font color='red'>ERROR: </font><br>"; 
+	  foreach($errors as $e) {
+		$_SESSION['errors'] .= "$e<br>";
+	  }
+	  $_SESSION['errors'] .= "	<br>";
   }
 }
