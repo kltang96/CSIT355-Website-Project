@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2018 at 04:58 AM
+-- Generation Time: Dec 08, 2018 at 01:28 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -103,7 +103,11 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`orderID`, `customerID`, `cost`, `status`, `orderdate`, `fulfilldate`, `request`) VALUES
 (0, 'user1', 1, 'pending', '2018-12-01', NULL, 'test request true'),
-(1, 'user1', 2, 'fulfilled', '2012-12-12', NULL, 'test request false');
+(1, 'user1', 2, 'fulfilled', '2012-12-12', NULL, 'test request false'),
+(7, 'user2', 5, 'pending', '2022-01-01', NULL, 'reqthree'),
+(8, 'user1', 0, 'pending', '2018-12-04', NULL, ''),
+(9, 'user1', 0, 'pending', '2018-12-04', NULL, ''),
+(10, 'user1', 0, 'pending', '2018-12-04', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -121,6 +125,13 @@ CREATE TABLE `products` (
   `type` enum('water','juice','soda','alcoholic','other') DEFAULT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`productid`, `name`, `brand`, `description`, `picture`, `price`, `type`, `quantity`) VALUES
+(1, 'Water', 'Nature', 'Good ol\' H2O', 'water.jpg', 1, 'water', 99);
 
 -- --------------------------------------------------------
 
@@ -188,13 +199,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
