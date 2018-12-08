@@ -20,7 +20,7 @@
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          
-         header("location: products1.php");
+         header("location: products.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
