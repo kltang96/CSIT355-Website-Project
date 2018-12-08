@@ -48,7 +48,7 @@
 			}
 			fwrite($fp, $item[$item.length] . '\n');
 		}
-
+		fclose($fp);
 	}
 	
 	 

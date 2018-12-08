@@ -176,15 +176,7 @@ if (!isset($_SESSION["cart_array"]) || count($_SESSION["cart_array"]) < 1) {
         <td width="9%" bgcolor="#C5DFFA"><strong>Total</strong></td>
         <td width="9%" bgcolor="#C5DFFA"><strong>Remove</strong></td>
       </tr>
-     <?php echo $cartOutput; ?>
-     <!-- <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr> -->
+      <?php echo $cartOutput; ?>
     </table>
     <?php echo $cartTotal; ?>
     <br />
