@@ -1,0 +1,64 @@
+[06-Dec-2018 02:41:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_real_escape_string() in /home/garbuttz1/public_html/cgi-bin/admin/login.php:35
+Stack trace:
+#0 {main}
+  thrown in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 35
+[06-Dec-2018 02:43:16 UTC] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 35
+[06-Dec-2018 02:43:16 UTC] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 36
+[06-Dec-2018 02:44:17 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 25
+[06-Dec-2018 02:44:17 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 25
+[06-Dec-2018 02:44:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 29
+[06-Dec-2018 02:44:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 33
+[06-Dec-2018 02:44:21 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 25
+[06-Dec-2018 02:44:21 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 25
+[06-Dec-2018 02:44:21 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 29
+[06-Dec-2018 02:44:21 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_products.php on line 33
+[06-Dec-2018 02:45:07 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/view_cats.php on line 16
+[06-Dec-2018 02:45:07 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/admin/view_cats.php on line 16
+[06-Dec-2018 02:45:07 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_cats.php on line 20
+[06-Dec-2018 02:45:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_cats.php on line 24
+[06-Dec-2018 02:45:51 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/view_brands.php on line 16
+[06-Dec-2018 02:45:51 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/admin/view_brands.php on line 16
+[06-Dec-2018 02:45:51 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_brands.php on line 20
+[06-Dec-2018 02:45:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_brands.php on line 24
+[06-Dec-2018 02:46:25 UTC] PHP Warning:  include(includes/db.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/view_customers.php on line 17
+[06-Dec-2018 02:46:25 UTC] PHP Warning:  include(): Failed opening 'includes/db.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/admin/view_customers.php on line 17
+[06-Dec-2018 02:46:25 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_customers.php on line 21
+[06-Dec-2018 02:46:25 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/garbuttz1/public_html/cgi-bin/admin/view_customers.php on line 25
+[09-Dec-2018 01:27:01 UTC] PHP Fatal error:  Can't use function return value in write context in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 36
+[09-Dec-2018 01:40:16 UTC] PHP Warning:  password_hash() expects at least 2 parameters, 1 given in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 37
+[09-Dec-2018 01:41:00 UTC] PHP Warning:  password_hash() expects at least 2 parameters, 1 given in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 37
+[09-Dec-2018 01:42:12 UTC] PHP Warning:  password_hash() expects at least 2 parameters, 1 given in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 36
+[09-Dec-2018 16:26:44 UTC] PHP Warning:  Illegal string offset 'password' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:28:20 UTC] PHP Warning:  Illegal string offset 'password' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:29:34 UTC] PHP Warning:  Illegal string offset 'password' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:31:01 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:34:44 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:36:36 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:37:12 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:38:27 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:40:18 UTC] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:43:39 UTC] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:43:46 UTC] PHP Parse error:  syntax error, unexpected '"', expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:44:43 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:45:54 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 16:48:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch() in /home/garbuttz1/public_html/cgi-bin/admin/login.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 45
+[09-Dec-2018 16:50:58 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 17:08:17 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 46
+[09-Dec-2018 17:09:42 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 44
+[10-Dec-2018 02:48:51 UTC] PHP Warning:  move_uploaded_file(product_images/printable-empty-calendar-2017-calendar.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 136
+[10-Dec-2018 02:48:51 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpodCX2n' to 'product_images/printable-empty-calendar-2017-calendar.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 136
+[10-Dec-2018 04:18:06 UTC] PHP Warning:  move_uploaded_file(public_html/cgi-bin/admin/product_imagescalendar-template-print-outs-monthly-calendar-print-out-print-monthly-calendar-printable-monthly-calendars-wgomch-kjaBTP.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:18:06 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpzEJ4fm' to 'public_html/cgi-bin/admin/product_imagescalendar-template-print-outs-monthly-calendar-print-out-print-monthly-calendar-printable-monthly-calendars-wgomch-kjaBTP.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:29:21 UTC] PHP Warning:  move_uploaded_file(home/garbuttz1/public_html/cgi-bin/admin/product_images/150px-Flag_of_Germany.svg.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:29:22 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpDte2DC' to 'home/garbuttz1/public_html/cgi-bin/admin/product_images/150px-Flag_of_Germany.svg.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:35:21 UTC] PHP Warning:  move_uploaded_file(public_html/cgi-bin/product_images/150px-Flag_of_the_United_States.svg.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:35:21 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpvH2Rh2' to 'public_html/cgi-bin/product_images/150px-Flag_of_the_United_States.svg.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:35:21 UTC] PHP Warning:  move_uploaded_file(public_html/cgi-bin/product_images/150px-Flag_of_the_United_States.svg.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[10-Dec-2018 04:35:21 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpQRJS56' to 'public_html/cgi-bin/product_images/150px-Flag_of_the_United_States.svg.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 138
+[11-Dec-2018 04:04:36 UTC] PHP Warning:  Illegal string offset 'user_pass' in /home/garbuttz1/public_html/cgi-bin/admin/login.php on line 41
+[12-Dec-2018 03:38:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/garbuttz1/public_html/cgi-bin/admin/insert_product.php on line 136
+[12-Dec-2018 05:05:01 UTC] PHP Warning:  move_uploaded_file(product_images/RiceCola.jpg): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/admin/edit_pro.php on line 176
+[12-Dec-2018 05:05:01 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpTUHhmc' to 'product_images/RiceCola.jpg' in /home/garbuttz1/public_html/cgi-bin/admin/edit_pro.php on line 176

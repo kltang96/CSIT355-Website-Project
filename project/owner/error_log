@@ -1,0 +1,5 @@
+[06-Dec-2018 04:13:43 UTC] PHP Warning:  include(view_cats.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/owner/index.php on line 77
+[06-Dec-2018 04:13:43 UTC] PHP Warning:  include(): Failed opening 'view_cats.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/owner/index.php on line 77
+[06-Dec-2018 04:16:06 UTC] PHP Warning:  include(view_brands.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/owner/index.php on line 95
+[06-Dec-2018 04:16:06 UTC] PHP Warning:  include(): Failed opening 'view_brands.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/owner/index.php on line 95
+[11-Dec-2018 05:00:39 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/garbuttz1/public_html/cgi-bin/owner/login.php on line 47
