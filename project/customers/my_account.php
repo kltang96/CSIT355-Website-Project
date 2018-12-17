@@ -81,7 +81,7 @@ include("functions.php");
 				echo "
 				<div class= 'row'>		
                     <div class='list-group center' style='margin-top: 50px;margin-bottom: 50px;'>
-                      <a href='my_account.php?my_orders' class='list-group-item list-group-item-action'>My Orders</a>
+                      <a href='Orders.php' class='list-group-item list-group-item-action'>My Orders</a>
                       <a href='edit_account.php' class='list-group-item list-group-item-action'>Edit Account</a>
                       <a href='change_pass.php' class='list-group-item list-group-item-action'>Change Password</a>
                       <a href='delete_account.php' class='list-group-item list-group-item-action text-danger'>Delete Account</a>

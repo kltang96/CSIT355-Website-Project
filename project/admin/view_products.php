@@ -6,16 +6,16 @@ if(!isset($_SESSION['user_email'])){
 else {
 
 ?>
-<table width="795" align="center" bgcolor="pink"> 
+<table width="80%" align="center" border='1'> 
 
 	
 	<tr align="center">
 		<td colspan="6"><h2>View All Products Here</h2></td>
 	</tr>
 	
-	<tr align="center" bgcolor="skyblue">
-		<th>S.N</th>
-		<th>Title</th>
+	<tr align="center" bgcolor="grey">
+		<th>#</th>
+		<th>Name</th>
 		<th>Image</th>
 		<th>Price</th>
 		<th>Edit</th>
@@ -42,7 +42,7 @@ else {
 	<tr align="center">
 		<td><?php echo $i;?></td>
 		<td><?php echo $pro_title;?></td>
-		<td><img src="product_images/<?php echo $pro_image;?>" width="60" height="60"/></td>
+		<td><img src="../product_images/<?php echo $pro_image;?>" width="60" height="60"/></td>
 		<td><?php echo $pro_price;?></td>
 		<td><a href="index.php?edit_pro=<?php echo $pro_id; ?>">Edit</a></td>
 		<td><a href="delete_pro.php?delete_pro=<?php echo $pro_id;?>">Delete</a></td>

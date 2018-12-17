@@ -87,22 +87,12 @@ else {
 		
 		}
 		
-		if(isset($_GET['insert_brand'])){
+		if(isset($_GET['view_orders'])){
 		
-		include("insert_brand.php"); 
-		
-		}
-		
-		if(isset($_GET['view_brands'])){
-		
-		include("view_brands.php"); 
+		include("view_orders.php"); 
 		
 		}
-		if(isset($_GET['edit_brand'])){
 		
-		include("edit_brand.php"); 
-		
-		}
 		if(isset($_GET['view_customers'])){
 		
 		include("view_customers.php"); 

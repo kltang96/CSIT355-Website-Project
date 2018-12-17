@@ -11,3 +11,5 @@
 [07-Dec-2018 23:39:21 UTC] PHP Warning:  include(): Failed opening 'session.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/Employee login/welcome.php on line 2
 [10-Dec-2018 15:49:42 UTC] PHP Warning:  include(session.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/Employee login/welcome.php on line 2
 [10-Dec-2018 15:49:42 UTC] PHP Warning:  include(): Failed opening 'session.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/Employee login/welcome.php on line 2
+[12-Dec-2018 14:06:03 UTC] PHP Warning:  include(session.php): failed to open stream: No such file or directory in /home/garbuttz1/public_html/cgi-bin/Employee login/welcome.php on line 2
+[12-Dec-2018 14:06:03 UTC] PHP Warning:  include(): Failed opening 'session.php' for inclusion (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/garbuttz1/public_html/cgi-bin/Employee login/welcome.php on line 2

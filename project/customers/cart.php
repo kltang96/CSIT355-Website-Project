@@ -2,6 +2,7 @@
 include("functions.php");
 include("db.php");
 session_start();
+$_SESSION['cart_array'] = [];
 ?>
 
 <!DOCTYPE>
@@ -86,103 +87,95 @@ session_start();
 				?>
 				<b style='color:orange;'>Your Shopping Cart - </b>
 				Total items: <b><?php total_items();?></b>, Totalprice: <b><?php total_price(); ?></b> 
+
 				
-				<!-- login or checkout -->
-				<?php 
-					if(isset($_SESSION['customer_email'])){
-					    echo " | <a href='checkout.php' style='color:orange;'>Checkout</a>";
-					}
-					else {
-					    echo " | <a href='checkout.php' style='color:orange;'>Login</a>";
-					}
-				?>
-    					
     					</span>
     			    </div>
     			</div>
 			</div>
-				
+			
 			<form action="" method="post" enctype="multipart/form-data">
-			
-				<table align="center" width="700" bgcolor="skyblue">
-					
-					<tr align="center">
-						<th>Remove</th>
-						<th>Product(S)</th>
-						<th>Quantity</th>
-						<th>Total Price</th>
-					</tr>
-                    <?php 
-            		    $total = 0;
-            		
-            		    global $con; 
-            		
-            		    //set id to either IP address or email address
-                    	$cid = '';
-                    	if(isset($_SESSION['customer_email'])) {
-                    	    $cid = $_SESSION['customer_email'];
-                    	} else {
-                    	    $cid = getIp();
-                    	}
-            		
-            		    $sel_price = "select * from cart where ip_add='$cid'";
-            		    $run_price = mysqli_query($con, $sel_price); 
-            		    
-            		    //the whole cart
-            		    while($p_price=mysqli_fetch_array($run_price)){
-            			
-            			    $pro_id = $p_price['p_id'];
-    			
-                			$qty = $p_price['qty'];
-            			
-            			    $pro_price = "select * from products where product_id='$pro_id'";
-            			
-            			    $run_pro_price = mysqli_query($con,$pro_price); 
-            			
-            			    //one item in the cart
-            			    $subtotal = 0;
-            			    while ($pp_price = mysqli_fetch_array($run_pro_price)){
-            			
-                			    $product_price = $pp_price['product_price'];
-                			    
-                			    $product_title = $pp_price['product_title'];
-                			
-                			    $product_image = $pp_price['product_image']; 
-                			
-                			    $subtotal = $product_price * $qty; 
-                			    $total += $subtotal; 
-                    					
-                    ?>
-					
-					<!-- the actual cart -->
-				    <tr align="center">
-						<td><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
-						<td><?php echo $product_title; ?><br>
-						<img src="../product_images/<?php echo $product_image;?>" width="60" height="60"/>
-						</td>
-						<td><input type="text" size="4" name="qty_<?php echo $pro_id; ?>" value="<?php echo $qty; ?>"/></td>
-						
-						
-						<td><?php echo "$" . $subtotal; ?></td>
-				    </tr>
-						
-					<?php } } //wtf you can actually do this??? ?>
-				    
-				    <!-- subtotal -->
-				    <tr>
-						<td colspan="4" align="right"><b>Sub Total: </b></td>
-						<td><?php echo "$" . $total;?></td>
-					</tr>
-					
-					<!-- buttons -->
-					<tr align="center">
-						<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"/></td>
-						<td><input type="submit" name="continue" value="Continue Shopping" /></td>
-						<td><input type="button" value="Checkout" onClick="self.location='checkout.php'"></td>
-					</tr>
-					
-				</table> 
-			
+			<div class="container">
+				<table class="table" align="center">
+                  <thead>
+                    <tr align="center">
+                      <th scope="col">Products</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Change quantity</th>
+                      <th scope="col">Remove</th>
+                      <th scope="col">Total Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                		<?php 
+                            		    $total = 0;
+                            		
+                            		    global $con; 
+                            		
+                            		    //set id to either IP address or email address
+                                    	$cid = '';
+                                    	if(isset($_SESSION['customer_email'])) {
+                                    	    $cid = $_SESSION['customer_email'];
+                                    	} else {
+                                    	    $cid = getIp();
+                                    	}
+                            		
+                            		    $sel_price = "select * from cart where ip_add='$cid'";
+                            		    $run_price = mysqli_query($con, $sel_price); 
+                            		    
+                            		    //the whole cart
+                            		    while($p_price=mysqli_fetch_array($run_price)){
+                            			
+                            			    $pro_id = $p_price['p_id'];
+                    			
+                                			$qty = $p_price['qty'];
+                            			
+                            			    $pro_price = "select * from products where product_id='$pro_id'";
+                            			
+                            			    $run_pro_price = mysqli_query($con,$pro_price); 
+                            			
+                            			    //one item in the cart
+                            			    $subtotal = 0;
+                            			    while ($pp_price = mysqli_fetch_array($run_pro_price)){
+                            			
+                                			    $product_price = $pp_price['product_price'];
+                                			    
+                                			    $product_title = $pp_price['product_title'];
+                                			
+                                			    $product_image = $pp_price['product_image']; 
+                                			
+                                			    $subtotal = $product_price * $qty; 
+                                			    $total += $subtotal; 
+                                    			
+                                    			$_SESSION['cart_array'][] = [$pro_id, $product_title, $qty, $subtotal];
+                                    ?>
+                	<!-- the actual cart -->
+                    <tr align="center">
+                      <td><u><?php echo $product_title; ?></u><br>
+                						<img src="../product_images/<?php echo $product_image;?>" width="50" height="50"/></td>
+                      <td><?php echo $qty; ?></td>
+                      <td><input type="text" size="4" name="qty_<?php echo $pro_id; ?>"/></td>
+                      <td><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>" style="height: 25px; width: 25px; color: #992222";/></td>
+                      <td><?php echo "$" . $subtotal; ?></td>
+                    </tr>
+            <?php } } //wtf you can actually do this??? 
+                $_SESSION['total'] = $total;
+            ?>
+                	<!-- subtotal -->
+                    <tr align="center">
+                      <td colspan='4'></td>
+                      <td><b>Total: <?php echo "$" . $total;?></b></td>
+                    </tr>
+                    <tr align="center">
+                		<td><input class="btn btn-btn-secondary" type="submit" name="return" value="< Return" /></td>
+                		<td></td>
+                		<td></td>
+                		<td><input class="btn btn-btn-secondary" type="submit" name="update_cart" value="Update Cart"/></td>
+                		<td><input class="btn btn-success" type="button" value="Checkout" onClick="self.location='checkout.php'"></td>
+                	</tr>
+                  </tbody>
+                </table>
+			</div>
 			</form>
 			
 	        <?php 
@@ -219,15 +212,17 @@ session_start();
     				    $p_id = $item['p_id'];
 					    $qty_p_id = "qty_$p_id";
 						$qty = $_POST[$qty_p_id];
-						$update_qty = "update cart set qty='$qty' WHERE p_id='$p_id' AND ip_add='$cid' ";
-						
-						$run_qty = mysqli_query($con, $update_qty); 
+						//if box is not empty;
+						if($qty != '') {
+    						$update_qty = "update cart set qty='$qty' WHERE p_id='$p_id' AND ip_add='$cid' ";
+    						$run_qty = mysqli_query($con, $update_qty); 
+						}
     			    }
     			    echo "<script>window.open('cart.php','_self')</script>";
     		
     		    }
     		    
-    		    if(isset($_POST['continue'])){
+    		    if(isset($_POST['return'])){
     		        echo "<script>window.open('index.php','_self')</script>";
     		    }
     	    }

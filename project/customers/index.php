@@ -19,9 +19,14 @@ if(!isset($_SESSION['customer_email'])){
                 height:250px;
             }
             .card{
-                
-                margin-right:20px;
+                margin-left:10px;
+                margin-right:10px;
                 margin-bottom:10px;
+                margin-top:5px;
+            }
+            .card-body{
+                
+                width: 260px;
             }
     	</style>
 	</head>
@@ -106,10 +111,10 @@ if(!isset($_SESSION['customer_email'])){
                 </div>
             </div>
             
-            
+            <div class="row" style="padding-left: 30px; padding-right:20px; align="center";">
         				<?php getPro(); ?>
         				<?php getCatPro(); ?>
-            
+            </div>
 	    </div>
 
 		<!--Content wrapper ends-->
